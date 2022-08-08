@@ -19,4 +19,4 @@ run git clone https://github.com/ycm-core/YouCompleteMe.git &&\
 
 from scratch
 
-copy --from=ubuntu /YouCompleteMe .
+copy --from=ubuntu /home/ubuntu/YouCompleteMe .
