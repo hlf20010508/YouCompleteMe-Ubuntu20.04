@@ -7,6 +7,7 @@ RUN apt-get update &&\
     apt-get -y install mono-complete golang nodejs default-jdk npm git &&\
     git clone https://github.com/ycm-core/YouCompleteMe.git &&\
     cd YouCompleteMe &&\
+    git submodule update --init --recursive &&\
     python3 install.py --all
 
 FROM scratch
