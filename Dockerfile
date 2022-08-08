@@ -1,7 +1,12 @@
-FROM python:3.7.13-alpine3.16
+FROM ubuntu:20.04 AS ubuntu
 
-RUN apk update &&\
-    apk add --no-cache cmake python3.7-dev git &&\
+RUN apt-get update &&\
+    apt-get -y install build-essential cmake vim-nox python3-dev
+    apt-get -y install mono-complete golang nodejs default-jdk npm &&\
     git clone https://github.com/ycm-core/YouCompleteMe.git &&\
     cd YouCompleteMe &&\
     python3 install.py --all
+
+FROM scratch
+
+COPY --from ubuntu /YouCompleteMe .
