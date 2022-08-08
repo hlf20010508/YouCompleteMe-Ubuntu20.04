@@ -20,6 +20,6 @@ run git clone https://github.com/ycm-core/YouCompleteMe.git &&\
     git submodule update --init --recursive &&\
     python3 install.py --all
 
-from scratch
+from alpine:3.15.5
 
-copy --from=ubuntu /home/ubuntu/YouCompleteMe .
+copy --from=ubuntu /home/ubuntu/YouCompleteMe /srv/
