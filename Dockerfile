@@ -2,7 +2,8 @@ from ubuntu:20.04 as ubuntu
 
 env DEBIAN_FRONTEND=noninteractive
 
-run apt-get install software-properties-common &&\
+run apt-get update &&\
+    apt-get install software-properties-common &&\
     add-apt-repository ppa:longsleep/golang-backports &&\
     apt-get update &&\
     apt-get -y install build-essential cmake vim-nox python3-dev wget curl &&\
