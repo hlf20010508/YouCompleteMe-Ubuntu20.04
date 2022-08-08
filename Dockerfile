@@ -9,4 +9,4 @@ RUN apt-get update &&\
 
 FROM scratch
 
-COPY --from ubuntu /YouCompleteMe .
+COPY --from=ubuntu /YouCompleteMe .
