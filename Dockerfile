@@ -1,8 +1,14 @@
-FROM ubuntu:20.04 AS ubuntu
+from ubuntu:20.04 as ubuntu
 
-ENV DEBIAN_FRONTEND=noninteractive
+run useradd -ms /bin/bash ubuntu
 
-RUN apt-get update &&\
+user ubuntu
+
+workdir /home/ubuntu
+
+env DEBIAN_FRONTEND=noninteractive
+
+run apt-get update &&\
     apt-get -y install build-essential cmake vim-nox python3-dev &&\
     apt-get -y install mono-complete golang nodejs default-jdk npm git &&\
     git clone https://github.com/ycm-core/YouCompleteMe.git &&\
@@ -10,6 +16,6 @@ RUN apt-get update &&\
     git submodule update --init --recursive &&\
     python3 install.py --all
 
-FROM scratch
+from scratch
 
-COPY --from=ubuntu /YouCompleteMe .
+copy --from=ubuntu /YouCompleteMe .
