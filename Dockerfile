@@ -25,5 +25,5 @@ from alpine:3.15.5
 copy --from=ubuntu /home/ubuntu/YouCompleteMe /srv/YouCompleteMe
 
 entrypoint echo Project located in /srv/YouCompleteMe &&\
-    echo Copy it out using command:
+    echo Copy it out using command: &&\
     echo sudo docker cp YOURCONTAINER:/srv/YouCompleteMe ~/.vim/YOUR_PLUGIN_LOCATION/YouCompleteMe
